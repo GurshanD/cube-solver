@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 16px;
+  color: #222;
+  background: #fafafa;
+}
+
+h1 { margin-bottom: 4px; }
+.intro { color: #555; max-width: 650px; }
+.note { background: #fff6d6; padding: 8px 12px; border-radius: 4px; }
+.error { color: #c0392b; min-height: 1em; }
+
+.layout { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
+.controls { display: flex; flex-direction: column; gap: 6px; width: 300px; }
+.controls label { font-weight: bold; margin-top: 10px; }
+.controls label.inline { font-weight: normal; margin: 0; }
+.row { display: flex; gap: 8px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
+
+input, select, button { font-size: 15px; padding: 6px 8px; }
+#scramble { font-family: monospace; }
+#length { width: 60px; }
+button { cursor: pointer; }
+button.primary { margin-top: 16px; padding: 10px; background: #2a62c9; color: white; border: none; border-radius: 4px; }
+button:disabled { opacity: 0.5; cursor: default; }
+
+/* Cube net:     U
+             L  F  R  B
+                D        */
+.net { display: grid; grid-template-columns: repeat(4, auto); gap: 4px; width: max-content; }
+.face { display: grid; gap: 2px; }
+.sticker { width: 26px; height: 26px; border: 1px solid #333; border-radius: 3px; }
+.size-2 .sticker { width: 38px; height: 38px; }
+
+.status { font-weight: bold; }
+.status.solved { color: #1e8e3e; }
+
+table { border-collapse: collapse; margin: 10px 0; }
+td { padding: 4px 16px 4px 0; border-bottom: 1px solid #ddd; }
+td:first-child { color: #666; }
+.moves { font-family: monospace; font-size: 16px; }
+.moves span { padding: 1px 3px; }
+.moves span.current { background: #2a62c9; color: white; border-radius: 3px; }

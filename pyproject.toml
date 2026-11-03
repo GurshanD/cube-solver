@@ -1,0 +1,17 @@
+[project]
+name = "cubesolver"
+version = "1.0.0"
+description = "Rubik's cube solver comparing BFS, DFS, iterative deepening DFS and A*"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["B905"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

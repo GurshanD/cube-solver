@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rubik's Cube Solver</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>Rubik's Cube Solver</h1>
+  <p class="intro">
+    Solves a 2x2 or 3x3 cube using one of four search algorithms: BFS, DFS, iterative deepening DFS, or A*.
+    BFS and DFS only work on short scrambles (around 6 moves on a 3x3). A* can handle about 10.
+  </p>
+  <p id="loading" class="note" hidden>Building lookup tables for A*, this only happens the first time (about 10 seconds)...</p>
+
+  <div class="layout">
+    <div class="controls">
+      <label for="size">Cube</label>
+      <select id="size">
+        <option value="3">3x3</option>
+        <option value="2">2x2</option>
+      </select>
+
+      <label for="scramble">Scramble</label>
+      <input id="scramble" type="text" value="R U F' L2 D" spellcheck="false" autocomplete="off">
+      <div class="row">
+        <button id="random">Random scramble</button>
+        <label class="inline" for="length">length</label>
+        <input id="length" type="number" min="1" max="25" value="6">
+      </div>
+
+      <label for="algorithm">Algorithm</label>
+      <select id="algorithm">
+        <option value="bfs">Breadth-first search (BFS)</option>
+        <option value="dfs">Depth-first search (DFS)</option>
+        <option value="iddfs">Iterative deepening DFS</option>
+        <option value="astar" selected>A*</option>
+      </select>
+
+      <button id="solve" class="primary">Solve</button>
+      <p id="error" class="error"></p>
+    </div>
+
+    <div>
+      <div id="net" class="net"></div>
+      <p id="status" class="status">Scrambled</p>
+    </div>
+  </div>
+
+  <div id="result" hidden>
+    <h2>Result</h2>
+    <p id="summary"></p>
+    <table>
+      <tr><td>Solution</td><td id="solution" class="moves"></td></tr>
+      <tr><td>Length</td><td id="length-out"></td></tr>
+      <tr><td>Nodes expanded</td><td id="expanded"></td></tr>
+      <tr><td>Max states in memory</td><td id="stored"></td></tr>
+      <tr><td>Time</td><td id="time"></td></tr>
+    </table>
+    <div class="row">
+      <button id="reset">Reset</button>
+      <button id="prev">Previous</button>
+      <button id="next">Next move</button>
+      <button id="play">Play</button>
+      <span id="step-label"></span>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
